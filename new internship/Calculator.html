@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<Style>
+    .main{
+        height: 10px;
+        width: 92%;
+        border: 2px solid black;
+        padding: 60px;
+        margin-top: 270px;
+        margin-left: -3px;
+        background-image: url(fifth.jpg);
+        background-size: 100% 150px;
+        box-shadow: 2px 2px 4px 9px black;
+         }
+         .body{
+            background-image: url(second.jpg);
+            background-color: darkorange;
+         }
+         .body:hover{
+            background-color: aqua;
+         }
+         .name{
+            width: 100%;
+            background-color: yellow;
+            font-size: 60px;
+            font-weight: bolder;
+            border: 2px solid black;
+            box-shadow: 2px 2px 4px 9px black;
+            text-align: center;
+            margin: -1.9px;
+         }
+
+         .name:hover{
+            background-color: brown;
+            font-style: italic;
+            text-orientation: sideways-right;
+         }
+         .o{
+            margin-left:100px;
+         }
+</Style>
+<body class="body">
+    <div class="name">Amar's Calculator</div>
+    <div class="main">
+        <input class="o" type="number" name="op1" id="operand1" >
+        <select class="o" name="operator" id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">x</option>
+            <option value="/">/</option>
+            <option value="%">%</option> 
+            <option value="^">^</option> 
+            <option value="sqrt">√</option> 
+            <option value="sin">sin</option> 
+            <option value="cos">cos</option> 
+            <option value="tan">tan</option> 
+        </select>
+        <input class="o" type="number" name="op2" id="operand2">
+        <button class="o" onclick="calculator()">Calculate</button>
+        <input class="o" type="text" id="result" readonly>
+    </div>
+    <script>
+        function calculator() {
+            var x = parseInt(document.getElementById("operand1").value);
+            var y = parseInt(document.getElementById("operand2").value);
+            var z = document.getElementById("operator").value;
+            var res;
+
+            if (z == '+') {
+                res = x + y;
+            } else if (z == '-') {
+                res = x - y;
+            } else if (z == '*') {
+                res = x * y;
+            } else if (z == '/') {
+                res = x / y;
+            } else if (z == '%') {
+                res = (x / 100) * y; 
+            } else if (z == '^') {
+                res = Math.pow(x, y); 
+            } else if (z == 'sqrt') {
+                res = Math.sqrt(x); 
+            } else if (z == 'sin') {
+                res = Math.sin(x); 
+            } else if (z == 'cos') {
+                res = Math.cos(x); 
+            } else if (z == 'tan') {
+                res = Math.tan(x); 
+            } else {
+                res = "Invalid operation";
+            }
+
+            document.getElementById("result").value = "Result: " + res;
+        }
+    </script>
+</body>
+</html>
